@@ -17,23 +17,16 @@ const initialState = {
 export default (state=initialState, action)=>{
     switch(action.type){
         case ADD_ACCOUNT:
-            const token = action.token
-            const userId = action.userId
-            const newUser = action.newUser
-            const name = action.name
-            const compName = action.compName
-            const number = action.number
-            const id = action.profileId
-        
+                   
         return{
                 ...state,
-                userId:userId,
-                token:token,
-                merchantName:name,
-                phoneNumber:number,
-                businessName:compName,
-                newUser:newUser,
-                profileId:id
+                userId:action.userId,
+                token:action.token,
+                merchantName:action.name,
+                phoneNumber:action.number,
+                businessName:action.compName,
+                newUser:action.newUser,
+                profileId:action.profileId
             }
         case UPDATE_PROFILE:
             const stateProvince = action.state
@@ -55,15 +48,17 @@ export default (state=initialState, action)=>{
                 newUser:action.signedIn,
             }
         case SIGN_ACCOUNT:
+             
+            console.log('Action', action.userId, action.newUser, action.number, action.token)
             return{
                 ...state,
-                token:action.token,
                 userId:action.userId,
-                newUser:action.newUser,
-                phoneNumber:action.number
+                token:action.token,
+                phoneNumber:action.number,
+                newUser:action.newUser
             }
         
         default:
-            return initialState
+            return state
     }
 }

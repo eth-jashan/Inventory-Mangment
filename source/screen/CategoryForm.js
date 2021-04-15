@@ -21,16 +21,16 @@ const CategoryForm = ({navigation}) => {
     }
 
     const categoryHandler = async() => {
-        await dispatch(categoryAction.addcategory(categoryName, categoryDescription, categoryImage))
+        await dispatch(categoryAction.addcategory(categoryName, categoryDescription))
         navigation.navigate('Main')
     }  
 
     return(
         <ScrollView style={{width:Dimensions.get("window").width}}>
             
-            <ImageHandler
+            {/* <ImageHandler
                 onImageTaken = {imageTaken}
-            />
+            /> */}
             <View style={{width:'92%', alignSelf:'center', marginVertical:4}}>
             <TextInput
                 value = {categoryName}

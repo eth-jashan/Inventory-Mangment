@@ -22,7 +22,7 @@ const StartUpScreen = props => {
         const tryLogin = async()=>{
             const userData = await AsyncStorage.getItem('userData');
             if(!userData){
-                props.navigation.navigate('Auth')
+                props.navigation.navigate('Signup')
                 return;
             }
             const transformedData = JSON.parse(userData);
@@ -33,7 +33,7 @@ const StartUpScreen = props => {
                 //expirationDate<= new Date() || 
                 !token || !userId)
                 {
-                props.navigation.navigate('Auth');
+                props.navigation.navigate('Signup');
                 return;
             }
             Authenticate(userId,token)
@@ -43,7 +43,7 @@ const StartUpScreen = props => {
 
     return(
         <View style = {styles.screen}>
-            <ActivityIndicator color='#009efd' size = 'large'/>
+            <ActivityIndicator color='red' size = 'large'/>
         </View>
     )
 }

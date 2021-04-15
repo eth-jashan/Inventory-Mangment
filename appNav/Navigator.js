@@ -36,7 +36,7 @@ const MainStack = createStackNavigator({
 })
 
 const Appnav = createSwitchNavigator({
-    Start:StartUpScreen,
+    // Start:StartUpScreen,
     Login:LoginStack,
     Signup : SignupStack,
     Setup:ProfileSetup,

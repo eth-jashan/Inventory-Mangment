@@ -21,7 +21,7 @@ export const signinAccount = (verificationId, code) => {
         const auth = await firebase.auth().signInWithCredential(credential)
 
         const token = await auth.user.getIdToken(true)
-        const userId = auth.user.uid 
+        const userId = auth.user.uid
         const signedIn = auth.additionalUserInfo.isNewUser
         const number = auth.user.phoneNumber
 
@@ -31,9 +31,11 @@ export const signinAccount = (verificationId, code) => {
         issuedTime = new Date(issuedTime).getTime()/1000
         let expiration = expireTime - issuedTime
 
+        console.log('Userid:', userId)
+
         dispatch({type:SIGN_ACCOUNT, token:token, userId:userId, newUser:signedIn, number:number})
-        const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
-        saveDataToStorage(token,userId,expirationDate);
+        // const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
+        // saveDataToStorage(token,userId,expirationDate);
     }
 
 }
@@ -69,8 +71,8 @@ export const signupAccount = (name, compName, verificationId, code) => {
         let expiration = expireTime - issuedTime
 
         dispatch({type:ADD_ACCOUNT, token:token, userId:userId, newUser:signedIn, name:name, compName:compName, number:number, profileId: resData.name})
-        const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
-        saveDataToStorage(token,userId,expirationDate);
+        // const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
+        // saveDataToStorage(token,userId,expirationDate);
     }
 
 }

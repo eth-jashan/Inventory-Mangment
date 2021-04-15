@@ -8,6 +8,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'react-native';
 import * as categoryaction from '../../store/action/category'
+import * as itemaction from '../../store/action/item'
 
 const {width, height} = Dimensions.get('window').width
 
@@ -23,6 +24,7 @@ const MainScreen = ({navigation}) => {
         
         setLoad(true)
         dispatch(categoryaction.categoryFetch())    
+        // dispatch(itemaction.fetchItem())
         setLoad(false)
     
     },[dispatch, setLoad])
@@ -44,6 +46,7 @@ const MainScreen = ({navigation}) => {
     },[fetchAction, dispatch])
 
     const userId = useSelector(x=>x.auth.userId)
+    console.log('Userid', userId)
 
     
 
@@ -76,7 +79,7 @@ const MainScreen = ({navigation}) => {
             <MaterialIcons name="category" size={30} color="white" />
             </View>
             <View style={{alignSelf:'center', marginLeft:24}}>
-                <Text style={{fontFamily:'black', fontSize:28}}>10</Text>
+                <Text style={{fontFamily:'black', fontSize:28}}>8</Text>
                 <Text style={{fontFamily:'book', fontSize:20}}>Categories Added</Text>
             </View>
 

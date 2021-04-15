@@ -108,6 +108,7 @@ const SignupScreen = ({navigation: { navigate } }) => {
                 verificationId={verificationId}
                 compName={businessName}
                 navigationhandler={navigationhandler}
+                type='signup'
             />
 
             

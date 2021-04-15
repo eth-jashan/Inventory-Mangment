@@ -9,9 +9,11 @@ import {  TextInput, Button, Switch } from 'react-native-paper';
 import ProductInfo from '../component/productInfo'
 import SalesInfo from '../component/salesInfo'
 import InventoryTracking from '../component/inventoryTracking'
+import * as itemActions from '../../store/action/item'
+import { useDispatch } from 'react-redux'
 const {width, height} = Dimensions.get('window')
 
-const ItemForm = () => {
+const ItemForm = ({navigation}) => {
     
     const [sales, isSales] = useState(false);
     const [inventory, setInventory] = useState(false)
@@ -22,6 +24,7 @@ const ItemForm = () => {
     const [productName, setProdctName] = useState('')
     const [sku, setsku] = useState('')
     const [productUnit, setProductUnit] = useState();
+    const dispatch = useDispatch()
 
     const [imageUri, setImageUri] = useState('')
     const ImageTaken = (imagePath) => {
@@ -29,8 +32,9 @@ const ItemForm = () => {
         console.log(imagePath)
     } 
 
-    const submitHandler = () =>{ 
-    console.log("Input :",)
+    const submitHandler = async() =>{ 
+        await dispatch(itemActions.addItem(sellPrice, costPrice, open, reorder, productName, productUnit, sku, imageUri))
+        navigation.navigate('Main')
     }
 
     return(

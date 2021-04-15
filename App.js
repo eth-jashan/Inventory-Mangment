@@ -9,11 +9,13 @@ import ReduxThunk from 'redux-thunk'
 
 import AuthReducer from './store/reducer/auth'
 import CategoryReducer from './store/reducer/category'
+import ItemReducer from './store/reducer/item'
 import Appnav from './appNav/Navigator'
 
 const rootReducer = combineReducers({
   auth:AuthReducer,
-  category:CategoryReducer
+  category:CategoryReducer,
+  item:ItemReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk))

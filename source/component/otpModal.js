@@ -60,7 +60,7 @@ const OtpModal = ({visible, toggleHandler, name, compName, verificationId, numbe
             />
         </View>
 
-        <Button onPress={type==='signin'?signinhandler:signuphandler} mode='contained' style={{backgroundColor:'#cb202d', width:'90%', alignSelf:'center', margin:12,padding:6, borderRadius:8}}>
+        <Button onPress={type==='login'?signinhandler:signuphandler} mode='contained' style={{backgroundColor:'#cb202d', width:'90%', alignSelf:'center', margin:12,padding:6, borderRadius:8}}>
             <Text style={styles.buttonStyle}>Confirm Otp</Text>
         </Button>
 

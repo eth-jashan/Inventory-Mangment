@@ -1,9 +1,9 @@
 class CategoryModel{
-    constructor(id, name, image, description){
+    constructor(id, name,  description){
         this.id = id;
         this.name = name;
         this.description = description;
-        this.image = image
+        
     }
 }
 

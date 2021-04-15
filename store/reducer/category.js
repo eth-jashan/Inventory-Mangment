@@ -12,9 +12,9 @@ export default (state = initialState, action) => {
         case ADD_CATEGORY:
             const name = action.name
             const description = action.description
-            const image = action.image
+            
             const id = action.id
-            const newcategory = new CategoryModel(id, name, description, image)
+            const newcategory = new CategoryModel(id, name, description)
             
         return{
             ...state,
