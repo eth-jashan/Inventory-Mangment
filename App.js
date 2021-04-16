@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 import * as Font from 'expo-font'
 import AppLoading from "expo-app-loading"
-
+import Appnav from './appNav/Navigator'
 
 import {Provider} from 'react-redux'
 import {applyMiddleware, createStore, combineReducers} from 'redux'
@@ -10,12 +10,14 @@ import ReduxThunk from 'redux-thunk'
 import AuthReducer from './store/reducer/auth'
 import CategoryReducer from './store/reducer/category'
 import ItemReducer from './store/reducer/item'
-import Appnav from './appNav/Navigator'
+import ContactReducer from './store/reducer/contact'
+
 
 const rootReducer = combineReducers({
   auth:AuthReducer,
   category:CategoryReducer,
-  item:ItemReducer
+  item:ItemReducer,
+  contact:ContactReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk))

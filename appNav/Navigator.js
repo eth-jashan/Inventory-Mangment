@@ -9,6 +9,9 @@ import {useSelector} from 'react-native'
 import StartUpScreen from '../source/screen/StartupScreen';
 import LoginScreen from '../source/screen/LoginScreen';
 import ItemForm from '../source/screen/ItemForm';
+import ContactForm from '../source/screen/ContactForm';
+import ListPage from '../source/screen/ListPage';
+import ProductScreen from '../source/screen/ProductScreen';
 
 
 
@@ -32,11 +35,14 @@ const MainStack = createStackNavigator({
     }},
     ItemForm:{screen: ItemForm, navigationOptions:{
         headerTitle:'New Item'
-}},    
+    }},    
+    ContactForm:ContactForm,
+    List:ListPage,
+    Product:ProductScreen
 })
 
 const Appnav = createSwitchNavigator({
-    // Start:StartUpScreen,
+    Start:StartUpScreen,
     Login:LoginStack,
     Signup : SignupStack,
     Setup:ProfileSetup,

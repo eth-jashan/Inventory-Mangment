@@ -10,6 +10,7 @@ export default (state=initialState, action) => {
 
     switch(action.type){
         case FETCH_ITEM:
+            
             const list = action.list
             return{
                 ...state,
@@ -26,7 +27,8 @@ export default (state=initialState, action) => {
             const sku = action.sku
             const productUnit= action.productUnit
             const url = action.url
-            const newItem = new ItemModel(id, 0, sellPrice, costPrice, open, reorder, productName, productUnit, sku, url) 
+            const catId = action.categoryId
+            const newItem = new ItemModel(id, catId, sellPrice, costPrice, open, reorder, productName, productUnit, sku, url) 
             const product = [...state.itemList]
 
             return{

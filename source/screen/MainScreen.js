@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'react-native';
 import * as categoryaction from '../../store/action/category'
 import * as itemaction from '../../store/action/item'
+import * as contactAction from '../../store/action/contact'
 
 const {width, height} = Dimensions.get('window').width
 
@@ -24,7 +25,8 @@ const MainScreen = ({navigation}) => {
         
         setLoad(true)
         dispatch(categoryaction.categoryFetch())    
-        // dispatch(itemaction.fetchItem())
+        dispatch(itemaction.fetchItem())
+        dispatch(contactAction.contactFetch())
         setLoad(false)
     
     },[dispatch, setLoad])
@@ -73,8 +75,9 @@ const MainScreen = ({navigation}) => {
             <View style={{margin:16}}>
             <Text style={{fontFamily:'medium', fontSize:24}}>Inventory Summary</Text>
             </View>
+
+            <TouchableOpacity onPress={()=>navigation.navigate('List',{type:'category',title:'Category List'})}>
             <View style={{width:'90%', backgroundColor:'white',padding:8,alignSelf:'center',borderRadius:5, flexDirection:'row' }}>
-            
             <View style={{width:50, height:50, backgroundColor:'orange', borderRadius:50, alignItems:'center', justifyContent:'center'}}>
             <MaterialIcons name="category" size={30} color="white" />
             </View>
@@ -82,11 +85,11 @@ const MainScreen = ({navigation}) => {
                 <Text style={{fontFamily:'black', fontSize:28}}>8</Text>
                 <Text style={{fontFamily:'book', fontSize:20}}>Categories Added</Text>
             </View>
-
             </View>
+            </TouchableOpacity>
 
+            <TouchableOpacity onPress={()=>navigation.navigate('List',{type:'item',title:'Item List'})}>
             <View style={{width:'90%', backgroundColor:'white',padding:8,alignSelf:'center',borderRadius:5, flexDirection:'row', marginVertical:16 }}>
-            
             <View style={{width:50, height:50, backgroundColor:'#6b52ae', borderRadius:50, alignItems:'center', justifyContent:'center'}}>
             <Ionicons name="ios-cart" size={30} color="white" />
             </View>
@@ -94,9 +97,20 @@ const MainScreen = ({navigation}) => {
                 <Text style={{fontFamily:'black', fontSize:28}}>10</Text>
                 <Text style={{fontFamily:'book', fontSize:20}}>Products Added</Text>
             </View>
-            
             </View>
-            
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={()=>navigation.navigate('List',{type:'contact', title:'Contact List'})}>
+            <View style={{width:'90%', backgroundColor:'white',padding:8,alignSelf:'center',borderRadius:5, flexDirection:'row', marginBottom:16 }}>
+            <View style={{width:50, height:50, backgroundColor:'#009efd', borderRadius:50, alignItems:'center', justifyContent:'center'}}>
+            <MaterialIcons name="contacts" size={30} color="white" />
+            </View>
+            <View style={{alignSelf:'center', marginLeft:24}}>
+                <Text style={{fontFamily:'black', fontSize:28}}>8</Text>
+                <Text style={{fontFamily:'book', fontSize:20}}>Contacts Added</Text>
+            </View>
+            </View>
+            </TouchableOpacity>
         </View>
         </SafeAreaView>
     )

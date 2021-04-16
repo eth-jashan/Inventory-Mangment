@@ -3,7 +3,6 @@ class CategoryModel{
         this.id = id;
         this.name = name;
         this.description = description;
-        
     }
 }
 

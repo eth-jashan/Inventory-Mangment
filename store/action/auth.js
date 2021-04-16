@@ -34,8 +34,8 @@ export const signinAccount = (verificationId, code) => {
         console.log('Userid:', userId)
 
         dispatch({type:SIGN_ACCOUNT, token:token, userId:userId, newUser:signedIn, number:number})
-        // const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
-        // saveDataToStorage(token,userId,expirationDate);
+        const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
+        saveDataToStorage(token,userId,expirationDate);
     }
 
 }
@@ -71,8 +71,8 @@ export const signupAccount = (name, compName, verificationId, code) => {
         let expiration = expireTime - issuedTime
 
         dispatch({type:ADD_ACCOUNT, token:token, userId:userId, newUser:signedIn, name:name, compName:compName, number:number, profileId: resData.name})
-        // const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
-        // saveDataToStorage(token,userId,expirationDate);
+        const expirationDate = new Date(new Date().getTime() + parseInt(expiration)*1000);
+        saveDataToStorage(token,userId,expirationDate);
     }
 
 }

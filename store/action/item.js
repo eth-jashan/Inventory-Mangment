@@ -4,7 +4,7 @@ export const FETCH_ITEM = 'FETCH_ITEM'
 import firebase from '../../firebase'
 import ItemModel from '../../model/itemModel'
 
-export const addItem = (sellPrice, costPrice, open, reorder, productName, productUnit, sku, imageUri) => {
+export const addItem = (sellPrice, costPrice, open, reorder, productName, productUnit, sku, imageUri, categoryId) => {
 
     return async (dispatch, getState) => {
 
@@ -15,7 +15,7 @@ export const addItem = (sellPrice, costPrice, open, reorder, productName, produc
             method:'POST',
             headers : {'Content-Type':'application/json'},
             body:JSON.stringify({
-                sellPrice, costPrice, open, reorder, productName, productUnit, sku
+                sellPrice, costPrice, open, reorder, productName, productUnit, sku,categoryId
             })
         })
         const resData = await response.json()
@@ -34,7 +34,7 @@ export const addItem = (sellPrice, costPrice, open, reorder, productName, produc
         })
         
 
-        dispatch({type:ADD_ITEM, id:resData.name, sellPrice, costPrice, open, reorder, productName, productUnit, sku, url})
+        dispatch({type:ADD_ITEM, id:resData.name, sellPrice, costPrice, open, reorder, productName, productUnit, sku, url,categoryId})
 
     }
 
@@ -51,8 +51,10 @@ export const fetchItem = () => {
     const itemList = []
 
     for(const keys in resData){
-    itemList.push(new ItemModel(keys, 0, resData[keys].sellPrice, resData[keys].costPrice,resData[keys].open, resData[keys].reorder, productName, resData[keys].productUnit, resData[keys].sku, resData[keys].image))
+    itemList.push(new ItemModel(keys, resData[keys].categoryId, resData[keys].sellPrice, resData[keys].costPrice,resData[keys].open, resData[keys].reorder, resData[keys].productName, resData[keys].productUnit, resData[keys].sku, resData[keys].image))
     }
+
+    console.log("Item", itemList)
 
     dispatch({type:FETCH_ITEM, list:itemList})
 

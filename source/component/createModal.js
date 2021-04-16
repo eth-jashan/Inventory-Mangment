@@ -46,6 +46,13 @@ const CreateModal = ({visible, dismisshandler, navigation}) => {
                     <Ionicons name="ios-cart" size={26} color="#cb202d" />
                 </View>
                 </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>navigationhandler('ContactForm')}>
+                <View style={{width:'100%', flexDirection:'row-reverse', justifyContent:'space-between',marginVertical:8}}>
+                    <Text style={{fontFamily:'book', fontSize:22}}>Contacts</Text>
+                    <MaterialIcons name="contacts" size={26} color="#cb202d" />
+                </View>
+                </TouchableOpacity>
                 </View>
                 
 

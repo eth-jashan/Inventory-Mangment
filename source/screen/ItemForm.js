@@ -24,6 +24,7 @@ const ItemForm = ({navigation}) => {
     const [productName, setProdctName] = useState('')
     const [sku, setsku] = useState('')
     const [productUnit, setProductUnit] = useState();
+    const [categoryId, setCategory] = useState()
     const dispatch = useDispatch()
 
     const [imageUri, setImageUri] = useState('')
@@ -33,14 +34,14 @@ const ItemForm = ({navigation}) => {
     } 
 
     const submitHandler = async() =>{ 
-        await dispatch(itemActions.addItem(sellPrice, costPrice, open, reorder, productName, productUnit, sku, imageUri))
+        await dispatch(itemActions.addItem(sellPrice, costPrice, open, reorder, productName, productUnit, sku, imageUri, categoryId))
         navigation.navigate('Main')
     }
 
     return(
         <SafeAreaView>
         <ScrollView>
-            <ProductInfo productName={productName} setProdctName={setProdctName} sku={sku} setsku={setsku} productUnit={productUnit} setProductUnit={setProductUnit} ImageTaken={ImageTaken} />
+            <ProductInfo categoryId={categoryId} setCategory={setCategory} productName={productName} setProdctName={setProdctName} sku={sku} setsku={setsku} productUnit={productUnit} setProductUnit={setProductUnit} ImageTaken={ImageTaken} />
             
             <View style={{flexDirection:'row', justifyContent:'space-between', width:width*0.85, alignSelf:'center'}}>
             <Text style={{fontFamily:'medium', fontSize:22, alignSelf:'center', marginVertical:8}}>Sales Information</Text>
