@@ -53,6 +53,14 @@ const CreateModal = ({visible, dismisshandler, navigation}) => {
                     <MaterialIcons name="contacts" size={26} color="#cb202d" />
                 </View>
                 </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>navigationhandler('DriverForm')}>
+                <View style={{width:'100%', flexDirection:'row-reverse', justifyContent:'space-between',marginVertical:8}}>
+                    <Text style={{fontFamily:'book', fontSize:22}}>Create Driver</Text>
+                    <MaterialIcons name="contacts" size={26} color="#cb202d" />
+                </View>
+                </TouchableOpacity>
+
                 </View>
                 
 

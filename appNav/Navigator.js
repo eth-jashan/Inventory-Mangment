@@ -12,6 +12,7 @@ import ItemForm from '../source/screen/ItemForm';
 import ContactForm from '../source/screen/ContactForm';
 import ListPage from '../source/screen/ListPage';
 import ProductScreen from '../source/screen/ProductScreen';
+import CreateDriver from '../source/screen/CreateDriver';
 
 
 
@@ -38,7 +39,8 @@ const MainStack = createStackNavigator({
     }},    
     ContactForm:ContactForm,
     List:ListPage,
-    Product:ProductScreen
+    Product:ProductScreen,
+    DriverForm:CreateDriver
 })
 
 const Appnav = createSwitchNavigator({

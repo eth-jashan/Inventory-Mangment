@@ -10,6 +10,7 @@ import { Button } from 'react-native';
 import * as categoryaction from '../../store/action/category'
 import * as itemaction from '../../store/action/item'
 import * as contactAction from '../../store/action/contact'
+import * as driverAction from '../../store/action/driver'
 
 const {width, height} = Dimensions.get('window').width
 
@@ -27,6 +28,7 @@ const MainScreen = ({navigation}) => {
         dispatch(categoryaction.categoryFetch())    
         dispatch(itemaction.fetchItem())
         dispatch(contactAction.contactFetch())
+        dispatch(driverAction.driverFetch())
         setLoad(false)
     
     },[dispatch, setLoad])
