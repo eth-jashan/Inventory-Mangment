@@ -6,6 +6,7 @@ import Modal from 'react-native-modal';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { withNavigation } from 'react-navigation';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const CreateModal = ({visible, dismisshandler, navigation}) => {
 
@@ -58,6 +59,13 @@ const CreateModal = ({visible, dismisshandler, navigation}) => {
                 <View style={{width:'100%', flexDirection:'row-reverse', justifyContent:'space-between',marginVertical:8}}>
                     <Text style={{fontFamily:'book', fontSize:22}}>Create Driver</Text>
                     <MaterialIcons name="contacts" size={26} color="#cb202d" />
+                </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>navigationhandler('CategoryList')}>
+                <View style={{width:'100%', flexDirection:'row-reverse', justifyContent:'space-between',marginVertical:8}}>
+                    <Text style={{fontFamily:'book', fontSize:22}}>Create Order</Text>
+                    <MaterialCommunityIcons name="truck-delivery-outline" size={26} color="#cb202d" />
                 </View>
                 </TouchableOpacity>
 

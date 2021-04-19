@@ -1,11 +1,13 @@
 import React from 'react'
 import { Dimensions } from 'react-native'
 import {View, StyleSheet, Text} from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
+import { withNavigation } from 'react-navigation'
 import { useSelector } from 'react-redux'
 
 const {width, height} = Dimensions.get('window')
  
-const CategoryCard = ({item}) => {
+const CategoryCard = ({item,type,navigation}) => {
 
     let product = useSelector(x=>x.item.itemList) 
     product = product.filter(x=>x.catId === item.id)
@@ -13,6 +15,7 @@ const CategoryCard = ({item}) => {
     
 
     return(
+    <TouchableOpacity disabled={type==='order'?false:true} onPress={()=>navigation.navigate('ProductList',{item:item})}>
     <View style={{width:width*0.9, backgroundColor:'white', borderRadius:5, marginVertical:4, alignSelf:'center', padding:8, flexDirection:'row', justifyContent:'space-between'}}>
         
         <View>
@@ -25,7 +28,8 @@ const CategoryCard = ({item}) => {
         
         
         </View>
+        </TouchableOpacity>
     )
 
 }
-export default CategoryCard
+export default withNavigation(CategoryCard)

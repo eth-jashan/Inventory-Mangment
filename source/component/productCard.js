@@ -8,14 +8,14 @@ import { useSelector } from 'react-redux'
 
 const {width, height} = Dimensions.get('window')
  
-const ProductCard = ({item, navigation}) => {
+const ProductCard = ({item, navigation, type}) => {
 
 
     console.log('Item', item)
 
     return(
     
-    <TouchableOpacity onPress={()=>navigation.navigate('Product',{item:item})}>
+    <TouchableOpacity disabled={type==='order'?true:false} onPress={()=>navigation.navigate('Product',{item:item})}>
     <View style={{width:width*0.95, backgroundColor:'white', borderRadius:5, marginVertical:4, alignSelf:'center', padding:8}}>
     <View style={{flexDirection:'row', justifyContent:'space-between'}}>
     <View style={{flexDirection:'row'}}>

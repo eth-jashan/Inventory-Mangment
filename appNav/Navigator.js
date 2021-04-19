@@ -13,6 +13,8 @@ import ContactForm from '../source/screen/ContactForm';
 import ListPage from '../source/screen/ListPage';
 import ProductScreen from '../source/screen/ProductScreen';
 import CreateDriver from '../source/screen/CreateDriver';
+import CategoryCatalogue from '../source/screen/CategoryCatalogue'
+import ProductList from '../source/screen/ProductList';
 
 
 
@@ -40,7 +42,9 @@ const MainStack = createStackNavigator({
     ContactForm:ContactForm,
     List:ListPage,
     Product:ProductScreen,
-    DriverForm:CreateDriver
+    DriverForm:CreateDriver,
+    CategoryList:CategoryCatalogue,
+    ProductList:ProductList
 })
 
 const Appnav = createSwitchNavigator({
